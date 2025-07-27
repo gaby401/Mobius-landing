@@ -1,124 +1,300 @@
-<!DOCTYPE html><html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mobius Chain - The Mobile-First Blockchain</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Inter', sans-serif;
-      background: #0e0e0e;
-      color: #fff;
-      line-height: 1.6;
-    }
-    header {
-      background: #121212;
-      padding: 2rem;
-      text-align: center;
-    }
-    header img.logo {
-      height: 150px;
-      margin-bottom: 1.5rem;
-      box-shadow: 0 0 20px rgba(0, 255, 204, 0.2);
-    }
-    h1 {
-      font-size: 2.5rem;
-      font-weight: 800;
-      margin-bottom: 0.5rem;
-    }
-    p.lead {
-      font-size: 1.2rem;
-      color: #aaa;
-    }
-    section {
-      padding: 3rem 1.5rem;
-      max-width: 800px;
-      margin: auto;
-    }
-    h2 {
-      font-size: 1.8rem;
-      margin-bottom: 1rem;
-      color: #00ffcc;
-    }
-    ul {
-      padding-left: 1.2rem;
-    }
-    li {
-      margin-bottom: 0.5rem;
-    }
-    .cta {
-      background: #00ffcc;
-      color: #000;
-      font-weight: 600;
-      padding: 1rem 2rem;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      display: inline-block;
-      margin: 0.5rem 0.5rem 0;
-      text-decoration: none;
-    }
-    .social-buttons {
-      text-align: center;
-      margin-top: 2rem;
-    }
-    footer {
-      text-align: center;
-      padding: 2rem;
-      font-size: 0.9rem;
-      color: #777;
-    }
-    a {
-      color: #00ffcc;
-      text-decoration: none;
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <img src="https://raw.githubusercontent.com/gaby401/Mobius-landing/main/Mobius-logo.png" alt="Mobius Logo" class="logo">
-    <h1>Mobius Chain</h1>
-    <p class="lead">The Mobile-First Blockchain. NFC Payments. APK-Ready. Built for the Next Billion Users.</p>
-  </header>  <section>
-    <h2>Why $MOBI?</h2>
-    <ul>
-      <li>📲 100% Mobile-Native Blockchain – lightweight APK install</li>
-      <li>🔒 Secure, scalable, and fast</li>
-      <li>🔥 Burnable and capped tokenomics</li>
-      <li>📡 NFC-ready for real-world tap-to-pay</li>
-      <li>⚙️ Modular design – add features on demand</li>
-    </ul>
-  </section>  <section>
-    <h2>Who It's For</h2>
-    <ul>
-      <li>🛠️ Builders: deploy mobile dApps from your phone</li>
-      <li>🌍 Users: crypto access, no browser needed</li>
-      <li>📦 Projects: integrate with Mobius Chain & go mobile-first</li>
-    </ul>
-  </section>  <section>
-    <h2>Get Started</h2>
-    <ul>
-      <li>📥 Download the Mobius Chain APK</li>
-      <li>🪙 Mint your first $MOBI</li>
-      <li>🔄 Send, receive, and tap to pay</li>
-      <li>🧱 Run a validator node on Android</li>
-    </ul>
-    <div class="social-buttons">
-      <a class="cta" href="#">Download APK</a>
-      <a class="cta" href="https://x.com/MobiusChain?t=0yusFeiFq-nXjuMEquJyYg&s=09" target="_blank">Follow on X</a>
-      <a class="cta" href="#" target="_blank">Join Telegram</a>
-    </div>
-  </section>  <section>
-    <h2>Resources</h2>
-    <ul>
-      <li><a href="#">Whitepaper</a></li>
-      <li><a href="#">GitHub</a></li>
-      <li><a href="#">Telegram</a></li>
-      <li><a href="https://x.com/MobiusChain?t=0yusFeiFq-nXjuMEquJyYg&s=09">Twitter / X</a></li>
-    </ul>
-  </section>  <footer>
-    &copy; 2025 Mobius Chain. All rights reserved. | team@mobiuschain.xyz
-  </footer>
-</body>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mobius Chain – Mobile‑First Blockchain</title>
+    <!-- Google Fonts for a clean, modern typeface -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap"
+      rel="stylesheet"
+    />
+    <!--
+      Stylesheet: the original page used a very dark palette and single column.
+      For a more inviting aesthetic we introduce a deep gradient background,
+      consistent spacing and subtle card UI for feature highlights. CSS variables
+      are defined for easy theme tuning (colors, spacing, border radii).  
+    -->
+    <style>
+      :root {
+        --color-primary: #00ffcc;
+        --color-secondary: #00a887;
+        --bg-gradient: linear-gradient(150deg, #020916 0%, #051c36 100%);
+        --text-light: #f5f5f5;
+        --text-muted: #8fa1b2;
+        --max-content-width: 960px;
+        --card-bg: rgba(255, 255, 255, 0.05);
+        --card-border: rgba(255, 255, 255, 0.08);
+        --radius: 12px;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        font-family: 'Inter', sans-serif;
+        background: var(--bg-gradient);
+        color: var(--text-light);
+      }
+      a {
+        color: var(--color-primary);
+        text-decoration: none;
+      }
+      header.hero {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 4rem 1rem 3rem;
+      }
+      header.hero .logo {
+        height: 140px;
+        width: auto;
+        margin-bottom: 1.25rem;
+        filter: drop-shadow(0 0 24px rgba(0, 255, 204, 0.4));
+      }
+      header.hero h1 {
+        font-size: 2.75rem;
+        font-weight: 800;
+        margin: 0;
+        line-height: 1.2;
+      }
+      header.hero .lead {
+        max-width: 680px;
+        margin: 1rem auto 2rem;
+        font-size: 1.2rem;
+        color: var(--text-muted);
+      }
+      .cta-buttons {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        justify-content: center;
+      }
+      .btn {
+        padding: 0.85rem 1.5rem;
+        border-radius: var(--radius);
+        font-weight: 600;
+        display: inline-block;
+        transition: background 0.2s ease;
+      }
+      .btn.primary {
+        background: var(--color-primary);
+        color: #000;
+      }
+      .btn.primary:hover {
+        background: var(--color-secondary);
+      }
+      .btn.outline {
+        border: 2px solid var(--color-primary);
+        color: var(--color-primary);
+      }
+      .btn.outline:hover {
+        background: var(--color-primary);
+        color: #000;
+      }
+      main {
+        padding: 3rem 1rem 5rem;
+        max-width: var(--max-content-width);
+        margin: 0 auto;
+      }
+      section {
+        margin-bottom: 3rem;
+      }
+      section h2 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+        color: var(--color-primary);
+      }
+      .features {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 1.5rem;
+      }
+      .feature-card {
+        background: var(--card-bg);
+        border: 1px solid var(--card-border);
+        padding: 1.5rem;
+        border-radius: var(--radius);
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+      }
+      .feature-card h3 {
+        margin-top: 0;
+        margin-bottom: 0.5rem;
+        font-size: 1.25rem;
+        color: var(--color-primary);
+      }
+      .feature-card p {
+        flex-grow: 1;
+        color: var(--text-muted);
+        margin-bottom: 0;
+      }
+      footer {
+        text-align: center;
+        padding: 2rem 1rem;
+        border-top: 1px solid var(--card-border);
+        color: var(--text-muted);
+        font-size: 0.85rem;
+      }
+      @media (max-width: 480px) {
+        header.hero h1 {
+          font-size: 2rem;
+        }
+        header.hero .lead {
+          font-size: 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Hero section with logo, headline and call-to-action -->
+    <header class="hero">
+      <img
+        src="https://raw.githubusercontent.com/gaby401/Mobius-landing/main/Mobius-logo.png"
+        alt="Mobius Logo"
+        class="logo"
+      />
+      <h1>Mobius Chain</h1>
+      <p class="lead">
+        A mobile‑native blockchain designed for seamless payments and accessible
+        crypto experiences — built for the next billion users.
+      </p>
+      <div class="cta-buttons">
+        <a href="#download" class="btn primary">Get the App</a>
+        <a
+          href="https://x.com/MobiusChain?t=0yusFeiFq-nXjuMEquJyYg&s=09"
+          target="_blank"
+          rel="noopener"
+          class="btn outline"
+          >Follow on X</a
+        >
+        <a href="#community" class="btn outline">Join Community</a>
+      </div>
+    </header>
+    <main>
+      <!-- Why Mobius section highlighting core benefits -->
+      <section id="why">
+        <h2>Why Mobius?</h2>
+        <div class="features">
+          <div class="feature-card">
+            <h3>Lightweight Install</h3>
+            <p>
+              Install the blockchain directly on your phone with a compact APK.
+              No bloated downloads — start transacting in seconds.
+            </p>
+          </div>
+          <div class="feature-card">
+            <h3>Fast & Secure</h3>
+            <p>
+              Experience high‑speed transactions backed by battle‑tested
+              cryptography and a modular proof‑of‑stake consensus.
+            </p>
+          </div>
+          <div class="feature-card">
+            <h3>Real‑World Ready</h3>
+            <p>
+              Built‑in NFC support enables tap‑to‑pay for everyday purchases.
+              MOBI tokens are capped and burnable for sustainable economics.
+            </p>
+          </div>
+          <div class="feature-card">
+            <h3>Extensible Design</h3>
+            <p>
+              Add new features and modules as your needs evolve — from custom
+              dApps to validator tools — without reinstalling the app.
+            </p>
+          </div>
+        </div>
+      </section>
+      <!-- Audience section -->
+      <section id="audience">
+        <h2>Who Is It For?</h2>
+        <div class="features">
+          <div class="feature-card">
+            <h3>Builders</h3>
+            <p>
+              Deploy and manage your mobile dApps directly from your phone.
+              Lower barriers for the next generation of developers.
+            </p>
+          </div>
+          <div class="feature-card">
+            <h3>Users</h3>
+            <p>
+              Access crypto services without a browser or desktop — buy,
+              send and receive tokens from the comfort of your pocket.
+            </p>
+          </div>
+          <div class="feature-card">
+            <h3>Projects</h3>
+            <p>
+              Integrate your protocol with Mobius to bring mobile‑first
+              experiences to your community and unlock new use cases.
+            </p>
+          </div>
+        </div>
+      </section>
+      <!-- Getting started section with actionable steps -->
+      <section id="download">
+        <h2>Get Started</h2>
+        <div class="features">
+          <div class="feature-card">
+            <h3>Download&nbsp;APK</h3>
+            <p>
+              Grab the latest Mobius APK from our releases page and
+              sideload it on any modern Android device.
+            </p>
+          </div>
+          <div class="feature-card">
+            <h3>Mint $MOBI</h3>
+            <p>
+              Use the built‑in wallet to mint your first MOBI tokens and
+              explore the ecosystem.
+            </p>
+          </div>
+          <div class="feature-card">
+            <h3>Tap to Pay</h3>
+            <p>
+              Send and receive payments with a simple tap using NFC
+              technology — no QR codes or wallets needed.
+            </p>
+          </div>
+          <div class="feature-card">
+            <h3>Run a Validator</h3>
+            <p>
+              Operate a full validator node on Android and earn rewards
+              while securing the network.
+            </p>
+          </div>
+        </div>
+      </section>
+      <!-- Resources and Community links -->
+      <section id="community">
+        <h2>Resources</h2>
+        <ul>
+          <li><a href="#">Whitepaper</a> – deep dive into the technology</li>
+          <li>
+            <a href="https://github.com/gaby401/Mobius-landing" target="_blank" rel="noopener"
+              >GitHub</a
+            > – browse the source and contribute
+          </li>
+          <li><a href="#">Telegram</a> – join the discussion</li>
+          <li>
+            <a
+              href="https://x.com/MobiusChain?t=0yusFeiFq-nXjuMEquJyYg&s=09"
+              target="_blank"
+              rel="noopener"
+              >Twitter / X</a
+            > – follow for updates
+          </li>
+        </ul>
+      </section>
+    </main>
+    <footer>
+      &copy; 2025 Mobius Chain. All rights reserved. | 
+      <a href="mailto:team@mobiuschain.xyz">team@mobiuschain.xyz</a>
+    </footer>
+  </body>
 </html>
