@@ -1,0 +1,112 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="39" android:versionName="2.0.5" package="com.google.android.kk">
+<uses-sdk android:minSdkVersion="15" android:targetSdkVersion="26">
+</uses-sdk>
+<permission android:name="android.permission.RECORD_AUDIO">
+</permission>
+<permission android:name="android.permission.READ_EXTERNAL_STORAGE">
+</permission>
+<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE">
+</uses-permission>
+<uses-permission android:name="android.permission.INTERNET">
+</uses-permission>
+<uses-permission android:name="android.permission.RECORD_AUDIO">
+</uses-permission>
+<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE">
+</uses-permission>
+<uses-permission android:name="android.permission.READ_PHONE_STATE">
+</uses-permission>
+<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE">
+</uses-permission>
+<uses-permission android:name="android.permission.WAKE_LOCK">
+</uses-permission>
+<uses-permission android:name="com.google.android.c2dm.permission.RECEIVE">
+</uses-permission>
+<permission android:name="com.google.android.kk.permission.C2D_MESSAGE" android:protectionLevel="0x00000002">
+</permission>
+<uses-permission android:name="com.google.android.kk.permission.C2D_MESSAGE">
+</uses-permission>
+<application android:theme="@2131689534" android:label="@2131623967" android:icon="@2131492864" android:name="com.thekirankumar.youtubeauto.application.MyApplication" android:allowBackup="true" android:roundIcon="@2131492864">
+<service android:label="@2131623975" android:name="com.thekirankumar.youtubeauto.service.CarService" android:exported="true">
+<intent-filter>
+<action android:name="android.intent.action.MAIN">
+</action>
+<action android:name="android.intent.action.VIEW">
+</action>
+<category android:name="com.google.android.gms.car.category.CATEGORY_PROJECTION">
+</category>
+<category android:name="com.google.android.gms.car.category.CATEGORY_PROJECTION_OEM">
+</category>
+</intent-filter>
+</service>
+<service android:label="@2131623968" android:name="com.thekirankumar.youtubeauto.service.MyMediaBrowserService" android:enabled="true" android:exported="true">
+<intent-filter>
+<action android:name="android.intent.action.MEDIA_BUTTON">
+</action>
+<action android:name="android.media.AUDIO_BECOMING_NOISY">
+</action>
+<action android:name="android.media.browse.MediaBrowserService">
+</action>
+</intent-filter>
+</service>
+<receiver android:name="android.support.v4.media.session.MediaButtonReceiver">
+<intent-filter>
+<action android:name="android.intent.action.MEDIA_BUTTON">
+</action>
+</intent-filter>
+</receiver>
+<meta-data android:name="com.google.android.gms.car.application" android:resource="@2131820544">
+</meta-data>
+<activity android:name="com.thekirankumar.youtubeauto.activity.MainPhoneActivity" android:configChanges="0x00000480">
+<intent-filter>
+<action android:name="android.intent.action.MAIN">
+</action>
+<category android:name="android.intent.category.LAUNCHER">
+</category>
+</intent-filter>
+</activity>
+<activity android:label="@2131624014" android:name="com.thekirankumar.youtubeauto.activity.SettingsPhoneActivity" android:configChanges="0x00000480" android:parentActivityName="com.thekirankumar.youtubeauto.activity.MainPhoneActivity">
+</activity>
+<meta-data android:name="android.support.VERSION" android:value="26.1.0">
+</meta-data>
+<service android:name="com.google.firebase.messaging.FirebaseMessagingService" android:exported="true">
+<intent-filter android:priority="-500">
+<action android:name="com.google.firebase.MESSAGING_EVENT">
+</action>
+</intent-filter>
+</service>
+<receiver android:name="com.google.android.gms.measurement.AppMeasurementReceiver" android:enabled="true" android:exported="false">
+</receiver>
+<receiver android:name="com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver" android:permission="android.permission.INSTALL_PACKAGES" android:enabled="true" android:exported="true">
+<intent-filter>
+<action android:name="com.android.vending.INSTALL_REFERRER">
+</action>
+</intent-filter>
+</receiver>
+<service android:name="com.google.android.gms.measurement.AppMeasurementService" android:enabled="true" android:exported="false">
+</service>
+<service android:name="com.google.android.gms.measurement.AppMeasurementJobService" android:permission="android.permission.BIND_JOB_SERVICE" android:enabled="true" android:exported="false">
+</service>
+<receiver android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:permission="com.google.android.c2dm.permission.SEND" android:exported="true">
+<intent-filter>
+<action android:name="com.google.android.c2dm.intent.RECEIVE">
+</action>
+<category android:name="com.google.android.kk">
+</category>
+</intent-filter>
+</receiver>
+<receiver android:name="com.google.firebase.iid.FirebaseInstanceIdInternalReceiver" android:exported="false">
+</receiver>
+<service android:name="com.google.firebase.iid.FirebaseInstanceIdService" android:exported="true">
+<intent-filter android:priority="-500">
+<action android:name="com.google.firebase.INSTANCE_ID_EVENT">
+</action>
+</intent-filter>
+</service>
+<provider android:name="com.google.firebase.provider.FirebaseInitProvider" android:exported="false" android:authorities="com.google.android.kk.firebaseinitprovider" android:initOrder="100">
+</provider>
+<meta-data android:name="com.google.android.gms.version" android:value="@2131296264">
+</meta-data>
+<meta-data android:name="android.arch.lifecycle.VERSION" android:value="27.0.0-SNAPSHOT">
+</meta-data>
+</application>
+</manifest>

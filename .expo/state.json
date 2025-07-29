@@ -1,0 +1,11 @@
+{
+  "auth": {
+    "userId": "fe06c2b6-ad1a-4050-88fe-0fe16a14a1d0",
+    "username": "gaby401",
+    "currentConnection": "Username-Password-Authentication",
+    "sessionSecret": "{\"id\":\"f0cce43c-96fc-4096-a7b4-713ddaf8586c\",\"version\":1,\"expires_at\":2069107200000}"
+  },
+  "PATH": "/data/data/com.termux/files/usr/bin:/product/bin:/apex/com.android.runtime/bin:/apex/com.android.art/bin:/system_ext/bin:/system/bin:/system/xbin:/odm/bin:/vendor/bin:/vendor/xbin",
+  "analyticsDeviceId": "e7906910-62cb-443b-9211-3ffa61626c01",
+  "uuid": "108ed449-8be2-4bdd-9eca-6fed5990556c"
+}

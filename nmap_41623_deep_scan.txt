@@ -1,0 +1,2 @@
+# Nmap 7.97 scan initiated Wed Jul 16 17:27:53 2025 as: /data/data/com.termux/files/usr/bin/nmap -p 41623 -sV --version-intensity 9 --version-all --scan-delay 1s -oN nmap_41623_deep_scan.txt 192.168.148.204
+# Nmap done at Wed Jul 16 17:28:03 2025 -- 1 IP address (0 hosts up) scanned in 10.11 seconds

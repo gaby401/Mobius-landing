@@ -1,0 +1,3 @@
+# add a SOCKS5 or HTTP proxy to the bottom, e.g.:
+socks5 127.0.0.1 9050
+

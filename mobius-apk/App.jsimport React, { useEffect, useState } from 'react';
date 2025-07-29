@@ -1,0 +1,118 @@
+leSheet, TouchableOpacity, Modal, TextInput, FlatList, ToastAndroid } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import ChainService from './services/ChainService';
+
+const Tab = createBottomTabNavigator();
+
+const Wallet = () => {
+  const [balance, setBalance] = useState(0);
+  const [modalVisible, setModalVisible] = useState(false);
+  const [amount, setAmount] = useState('');
+
+  useEffect(() => {
+    ChainService.init().then(() => updateBalance());
+  }, []);
+
+  const updateBalance = async () => {
+    const bal = await ChainService.getBalanceOfAddress('user');
+    setBalance(bal);
+  };
+
+  const sendMockNFC = async () => {
+    if (!amount) return;
+    await ChainService.addTransaction({ from: 'user', to: 'receiver', amount: parseFloat(amount) });
+    await ChainService.mineBlock('validator');
+    updateBalance();
+    setAmount('');
+    setModalVisible(false);
+    ToastAndroid.show('🔄 Sent via NFC!', ToastAndroid.SHORT);
+  };
+
+  return (
+    <View style={styles.container}>
+      <Text style={styles.title}>Mobius Wallet</Text>
+      <Text style={styles.balance}>Balance: {balance} MOBI</Text>
+      <TouchableOpacity style={styles.button} onPress={() => setModalVisible(true)}>
+        <Text style={styles.buttonText}>NFC Pay</Text>
+      </TouchableOpacity>
+
+      <Modal visible={modalVisible} transparent animationType="slide">
+        <View style={styles.modal}>
+          <Text style={styles.modalTitle}>Send via NFC</Text>
+          <TextInput
+            placeholder="Amount"
+            keyboardType="numeric"
+            style={styles.input}
+            value={amount}
+            onChangeText={setAmount}
+          />
+          <TouchableOpacity style={styles.button} onPress={sendMockNFC}>
+            <Text style={styles.buttonText}>Send</Text>
+          </TouchableOpacity>
+        </View>
+      </Modal>
+    </View>
+  );
+};
+
+const Explorer = () => {
+  const [blocks, setBlocks] = useState([]);
+
+  useEffect(() => {
+    ChainService.getBlocksWithTransactions().then(setBlocks);
+  }, []);
+
+  return (
+    <View style={styles.container}>
+      <Text style={styles.title}>Block Explorer</Text>
+      <FlatList
+        data={blocks}
+        keyExtractor={item => item.hash}
+        renderItem={({ item }) => (
+          <View style={styles.block}>
+            <Text style={styles.blockText}>Block #{item.id}</Text>
+            <Text style={styles.blockText}>Hash: {item.hash.slice(0, 10)}...</Text>
+            {item.transactions.map((tx, i) => (
+              <Text key={i} style={styles.txText}>
+                {tx.from} → {tx.to} : {tx.amount} MOBI
+              </Text>
+            ))}
+          </View>
+        )}
+      />
+    </View>
+  );
+};
+
+export default function App() {
+  return (
+    <NavigationContainer>
+      <Tab.Navigator
+        screenOptions={{
+          headerShown: false,
+          tabBarActiveTintColor: '#00ffcc',
+          tabBarStyle: { backgroundColor: '#111' },
+        }}
+      >
+        <Tab.Screen name="Wallet" component={Wallet} />
+        <Tab.Screen name="Explorer" component={Explorer} />
+      </Tab.Navigator>
+    </NavigationContainer>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: { flex: 1, backgroundColor: '#000', padding: 20 },
+  title: { fontSize: 28, color: '#0ff', fontWeight: 'bold', marginBottom: 20 },
+  balance: { fontSize: 24, color: '#fff', marginBottom: 30 },
+  button: { backgroundColor: '#0ff', padding: 15, borderRadius: 10 },
+  buttonText: { color: '#000', textAlign: 'center', fontWeight: 'bold' },
+  modal: { flex: 1, backgroundColor: '#000c', justifyContent: 'center', alignItems: 'center' },
+  modalTitle: { fontSize: 20, color: '#fff', marginBottom: 20 },
+  input: { backgroundColor: '#fff', padding: 10, width: 200, marginBottom: 20 },
+  block: { backgroundColor: '#111', padding: 10, marginVertical: 5, borderRadius: 10 },
+  blockText: { color: '#0ff', fontWeight: 'bold' },
+  txText: { color: '#fff', marginLeft: 10 },
+});	
+
